@@ -29,11 +29,8 @@
       justify-content: space-between;
     }
 
-    header h1 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #38bdf8;
-    }
+    header h1 { font-size: 16px; font-weight: 700; color: #38bdf8; }
+    .header-sub { font-size: 11px; color: #64748b; margin-top: 2px; }
 
     .clock {
       font-size: 24px;
@@ -42,52 +39,143 @@
       color: #f1f5f9;
     }
 
-    .header-sub {
-      font-size: 11px;
-      color: #64748b;
-      margin-top: 2px;
-    }
+    main { max-width: 600px; margin: 0 auto; padding: 16px; }
 
-    main {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-
-    /* 出勤時刻設定 */
-    .setting-card {
+    /* ── 関空着 入力 ── */
+    .arrival-input-card {
       background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 16px;
+      border: 2px solid #0ea5e9;
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 14px;
     }
 
-    .setting-card label {
+    .arrival-input-card .label-block { flex: 1; }
+    .arrival-input-card .label-block .title {
+      font-size: 12px;
+      color: #7dd3fc;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .arrival-input-card .label-block .desc {
       font-size: 13px;
       color: #94a3b8;
-      white-space: nowrap;
     }
 
-    .setting-card input[type="time"] {
+    input[type="time"] {
       background: #0f172a;
       border: 1px solid #334155;
-      border-radius: 8px;
-      padding: 8px 12px;
+      border-radius: 10px;
+      padding: 10px 14px;
       color: #f1f5f9;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 28px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
       outline: none;
+      width: 130px;
+      text-align: center;
     }
 
-    .setting-card input[type="time"]:focus {
-      border-color: #38bdf8;
+    input[type="time"]:focus { border-color: #38bdf8; }
+
+    /* ── 遅延情報 ── */
+    .delay-banner {
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.6;
     }
 
+    .delay-banner.ok {
+      background: #052e16;
+      border: 1px solid #166534;
+      color: #86efac;
+    }
+
+    .delay-banner.delay {
+      background: #431407;
+      border: 1px solid #9a3412;
+      color: #fdba74;
+    }
+
+    .delay-banner.error {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #64748b;
+    }
+
+    .delay-banner .icon { font-size: 18px; margin-top: 1px; }
+    .delay-banner .text strong { display: block; font-size: 14px; margin-bottom: 2px; }
+    .delay-updated { font-size: 11px; opacity: 0.6; }
+
+    /* ── 推奨電車 ── */
+    .recommend-box {
+      background: linear-gradient(135deg, #0c3a6e, #0c2340);
+      border: 1px solid #1d4ed8;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+
+    .recommend-box .label {
+      font-size: 11px;
+      color: #7dd3fc;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .recommend-box .row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .recommend-box .dep-time {
+      font-size: 52px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      color: #38bdf8;
+      line-height: 1;
+    }
+
+    .recommend-box .dep-label {
+      font-size: 16px;
+      color: #93c5fd;
+      font-weight: 700;
+    }
+
+    .recommend-box .sub {
+      font-size: 13px;
+      color: #93c5fd;
+      margin-top: 8px;
+    }
+
+    .recommend-box .arr {
+      font-size: 12px;
+      color: #60a5fa;
+      margin-top: 4px;
+    }
+
+    .no-train {
+      text-align: center;
+      padding: 24px;
+      color: #64748b;
+      font-size: 14px;
+      background: #1e293b;
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+
+    /* ── タブ ── */
     .tab-row {
       display: flex;
       gap: 8px;
@@ -113,65 +201,16 @@
       font-weight: 700;
     }
 
-    /* 乗車案内 */
-    .recommend-box {
-      background: linear-gradient(135deg, #0c3a6e, #0c2340);
-      border: 1px solid #1d4ed8;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 16px;
-    }
-
-    .recommend-box .label {
-      font-size: 11px;
-      color: #7dd3fc;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-    }
-
-    .recommend-box .main-time {
-      font-size: 42px;
-      font-weight: 900;
-      font-variant-numeric: tabular-nums;
-      color: #38bdf8;
-      line-height: 1;
-    }
-
-    .recommend-box .sub-info {
-      font-size: 13px;
-      color: #93c5fd;
-      margin-top: 6px;
-    }
-
-    .recommend-box .arr-info {
-      font-size: 12px;
-      color: #60a5fa;
-      margin-top: 4px;
-    }
-
-    .no-train-box {
-      text-align: center;
-      padding: 24px;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    /* 時刻表リスト */
+    /* ── 時刻表リスト ── */
     .section-title {
-      font-size: 12px;
+      font-size: 11px;
       color: #64748b;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 8px;
-      margin-top: 16px;
     }
 
-    .train-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .train-list { display: flex; flex-direction: column; gap: 8px; }
 
     .train-item {
       background: #1e293b;
@@ -179,7 +218,7 @@
       border-radius: 10px;
       padding: 12px 14px;
       display: grid;
-      grid-template-columns: 70px 1fr auto;
+      grid-template-columns: 72px 1fr auto;
       align-items: center;
       gap: 12px;
     }
@@ -189,9 +228,7 @@
       background: #0c2340;
     }
 
-    .train-item.passed {
-      opacity: 0.4;
-    }
+    .train-item.passed { opacity: 0.35; }
 
     .train-item .dep {
       font-size: 22px;
@@ -202,17 +239,8 @@
 
     .train-item.highlight .dep { color: #38bdf8; }
 
-    .train-item .details .type {
-      font-size: 13px;
-      font-weight: 600;
-      color: #e2e8f0;
-    }
-
-    .train-item .details .arr {
-      font-size: 11px;
-      color: #64748b;
-      margin-top: 2px;
-    }
+    .details .type { font-size: 13px; font-weight: 600; color: #e2e8f0; }
+    .details .arr  { font-size: 11px; color: #64748b; margin-top: 2px; }
 
     .badge {
       font-size: 11px;
@@ -223,7 +251,6 @@
     }
 
     .badge.ok      { background: #15803d; color: #bbf7d0; }
-    .badge.tight   { background: #92400e; color: #fde68a; }
     .badge.ng      { background: #7f1d1d; color: #fca5a5; }
     .badge.next    { background: #0ea5e9; color: #fff; }
     .badge.soon    { background: #f59e0b; color: #fff; }
@@ -237,6 +264,19 @@
       margin-top: 20px;
       line-height: 1.7;
     }
+
+    .spinner {
+      display: inline-block;
+      width: 12px; height: 12px;
+      border: 2px solid #334155;
+      border-top-color: #38bdf8;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -250,12 +290,26 @@
 </header>
 
 <main>
-  <!-- 出勤時刻設定 -->
-  <div class="setting-card">
-    <label>✈ 関空着</label>
+
+  <!-- 関空着 入力 -->
+  <div class="arrival-input-card">
+    <div class="label-block">
+      <div class="title">✈ 関空 到着目標</div>
+      <div class="desc">何時までに着きたい？</div>
+    </div>
     <input type="time" id="arrivalTarget" value="08:00" onchange="render()" />
-    <label style="margin-left:auto;font-size:12px;color:#475569">※出勤目標時刻</label>
   </div>
+
+  <!-- 遅延情報 -->
+  <div id="delayBanner" class="delay-banner error">
+    <span class="icon">🔄</span>
+    <div class="text">
+      <strong><span class="spinner"></span>運行情報を取得中...</strong>
+    </div>
+  </div>
+
+  <!-- 推奨電車 -->
+  <div id="recommendBox"></div>
 
   <!-- 平日/土休日 -->
   <div class="tab-row">
@@ -263,110 +317,115 @@
     <div class="tab" id="tab-holiday" onclick="switchTab('holiday')">土・日・祝</div>
   </div>
 
-  <div id="output"></div>
+  <!-- 時刻表 -->
+  <div class="section-title">直近の時刻表（富木発）</div>
+  <div class="train-list" id="trainList"></div>
 
   <p class="note">
     ※ 時刻はJR西日本 2024年3月ダイヤ改正に基づく参考値です。<br>
-    変更の可能性があります。乗車前に公式時刻表でご確認ください。
+    乗車前に公式時刻表でご確認ください。<br>
+    運行情報はJR西日本公式より取得。
   </p>
 </main>
 
 <script>
 // ============================================================
-// 富木発 → 関西空港着 時刻表
-// JR阪和線 関空快速（富木は一部通過あり。快速停車便のみ掲載）
-// 富木 → 日根野 → 関西空港
-// 富木〜関空: 約40〜50分
+// 富木発 → 関空着 時刻表（JR阪和線 関空快速）
 // ============================================================
 const TIMETABLE = {
   weekday: [
-    // [富木発, 関空着, 種別]
-    ['05:31', '06:18', '関空快速'],
-    ['06:00', '06:46', '関空快速'],
-    ['06:29', '07:17', '関空快速'],
-    ['06:57', '07:44', '関空快速'],
-    ['07:25', '08:12', '関空快速'],
-    ['07:54', '08:41', '関空快速'],
-    ['08:22', '09:09', '関空快速'],
-    ['08:50', '09:37', '関空快速'],
-    ['09:18', '10:05', '関空快速'],
-    ['09:48', '10:35', '関空快速'],
-    ['10:18', '11:05', '関空快速'],
-    ['10:48', '11:35', '関空快速'],
-    ['11:18', '12:05', '関空快速'],
-    ['11:48', '12:35', '関空快速'],
-    ['12:18', '13:05', '関空快速'],
-    ['12:48', '13:35', '関空快速'],
-    ['13:18', '14:05', '関空快速'],
-    ['13:48', '14:35', '関空快速'],
-    ['14:18', '15:05', '関空快速'],
-    ['14:48', '15:35', '関空快速'],
-    ['15:18', '16:05', '関空快速'],
-    ['15:48', '16:35', '関空快速'],
-    ['16:18', '17:05', '関空快速'],
-    ['16:48', '17:35', '関空快速'],
-    ['17:18', '18:05', '関空快速'],
-    ['17:48', '18:35', '関空快速'],
-    ['18:18', '19:05', '関空快速'],
-    ['18:48', '19:35', '関空快速'],
-    ['19:18', '20:05', '関空快速'],
-    ['19:48', '20:35', '関空快速'],
-    ['20:18', '21:05', '関空快速'],
-    ['20:48', '21:35', '関空快速'],
-    ['21:18', '22:05', '関空快速'],
-    ['21:48', '22:37', '関空快速'],
-    ['22:18', '23:07', '関空快速'],
-    ['22:48', '23:36', '関空快速'],
+    ['05:31','06:18','関空快速'],
+    ['06:00','06:46','関空快速'],
+    ['06:29','07:17','関空快速'],
+    ['06:57','07:44','関空快速'],
+    ['07:25','08:12','関空快速'],
+    ['07:54','08:41','関空快速'],
+    ['08:22','09:09','関空快速'],
+    ['08:50','09:37','関空快速'],
+    ['09:18','10:05','関空快速'],
+    ['09:48','10:35','関空快速'],
+    ['10:18','11:05','関空快速'],
+    ['10:48','11:35','関空快速'],
+    ['11:18','12:05','関空快速'],
+    ['11:48','12:35','関空快速'],
+    ['12:18','13:05','関空快速'],
+    ['12:48','13:35','関空快速'],
+    ['13:18','14:05','関空快速'],
+    ['13:48','14:35','関空快速'],
+    ['14:18','15:05','関空快速'],
+    ['14:48','15:35','関空快速'],
+    ['15:18','16:05','関空快速'],
+    ['15:48','16:35','関空快速'],
+    ['16:18','17:05','関空快速'],
+    ['16:48','17:35','関空快速'],
+    ['17:18','18:05','関空快速'],
+    ['17:48','18:35','関空快速'],
+    ['18:18','19:05','関空快速'],
+    ['18:48','19:35','関空快速'],
+    ['19:18','20:05','関空快速'],
+    ['19:48','20:35','関空快速'],
+    ['20:18','21:05','関空快速'],
+    ['20:48','21:35','関空快速'],
+    ['21:18','22:05','関空快速'],
+    ['21:48','22:37','関空快速'],
+    ['22:18','23:07','関空快速'],
+    ['22:48','23:36','関空快速'],
   ],
   holiday: [
-    ['05:31', '06:18', '関空快速'],
-    ['06:00', '06:46', '関空快速'],
-    ['06:29', '07:17', '関空快速'],
-    ['06:57', '07:44', '関空快速'],
-    ['07:25', '08:12', '関空快速'],
-    ['07:57', '08:44', '関空快速'],
-    ['08:30', '09:17', '関空快速'],
-    ['09:02', '09:49', '関空快速'],
-    ['09:32', '10:19', '関空快速'],
-    ['10:02', '10:49', '関空快速'],
-    ['10:32', '11:19', '関空快速'],
-    ['11:02', '11:49', '関空快速'],
-    ['11:32', '12:19', '関空快速'],
-    ['12:02', '12:49', '関空快速'],
-    ['12:32', '13:19', '関空快速'],
-    ['13:02', '13:49', '関空快速'],
-    ['13:32', '14:19', '関空快速'],
-    ['14:02', '14:49', '関空快速'],
-    ['14:32', '15:19', '関空快速'],
-    ['15:02', '15:49', '関空快速'],
-    ['15:32', '16:19', '関空快速'],
-    ['16:02', '16:49', '関空快速'],
-    ['16:32', '17:19', '関空快速'],
-    ['17:02', '17:49', '関空快速'],
-    ['17:32', '18:19', '関空快速'],
-    ['18:02', '18:49', '関空快速'],
-    ['18:32', '19:19', '関空快速'],
-    ['19:02', '19:49', '関空快速'],
-    ['19:32', '20:19', '関空快速'],
-    ['20:02', '20:49', '関空快速'],
-    ['20:32', '21:19', '関空快速'],
-    ['21:02', '21:49', '関空快速'],
-    ['21:32', '22:19', '関空快速'],
-    ['22:02', '22:49', '関空快速'],
-    ['22:32', '23:19', '関空快速'],
+    ['05:31','06:18','関空快速'],
+    ['06:00','06:46','関空快速'],
+    ['06:29','07:17','関空快速'],
+    ['06:57','07:44','関空快速'],
+    ['07:25','08:12','関空快速'],
+    ['07:57','08:44','関空快速'],
+    ['08:30','09:17','関空快速'],
+    ['09:02','09:49','関空快速'],
+    ['09:32','10:19','関空快速'],
+    ['10:02','10:49','関空快速'],
+    ['10:32','11:19','関空快速'],
+    ['11:02','11:49','関空快速'],
+    ['11:32','12:19','関空快速'],
+    ['12:02','12:49','関空快速'],
+    ['12:32','13:19','関空快速'],
+    ['13:02','13:49','関空快速'],
+    ['13:32','14:19','関空快速'],
+    ['14:02','14:49','関空快速'],
+    ['14:32','15:19','関空快速'],
+    ['15:02','15:49','関空快速'],
+    ['15:32','16:19','関空快速'],
+    ['16:02','16:49','関空快速'],
+    ['16:32','17:19','関空快速'],
+    ['17:02','17:49','関空快速'],
+    ['17:32','18:19','関空快速'],
+    ['18:02','18:49','関空快速'],
+    ['18:32','19:19','関空快速'],
+    ['19:02','19:49','関空快速'],
+    ['19:32','20:19','関空快速'],
+    ['20:02','20:49','関空快速'],
+    ['20:32','21:19','関空快速'],
+    ['21:02','21:49','関空快速'],
+    ['21:32','22:19','関空快速'],
+    ['22:02','22:49','関空快速'],
+    ['22:32','23:19','関空快速'],
   ]
 };
 
 let currentTab = 'weekday';
 
-function toMinutes(hhmm) {
+function toMin(hhmm) {
   const [h, m] = hhmm.split(':').map(Number);
   return h * 60 + m;
 }
 
-function nowMinutes() {
-  const now = new Date();
-  return now.getHours() * 60 + now.getMinutes();
+function nowMin() {
+  const n = new Date();
+  return n.getHours() * 60 + n.getMinutes();
+}
+
+function updateClock() {
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    n.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
 }
 
 function switchTab(tab) {
@@ -376,121 +435,155 @@ function switchTab(tab) {
   render();
 }
 
-function autoDetectTab() {
-  const day = new Date().getDay();
-  switchTab(day === 0 || day === 6 ? 'holiday' : 'weekday');
+function autoTab() {
+  const d = new Date().getDay();
+  switchTab(d === 0 || d === 6 ? 'holiday' : 'weekday');
 }
 
-function updateClock() {
-  const now = new Date();
-  document.getElementById('clock').textContent =
-    now.toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+// ── 遅延情報 ──────────────────────────────────────────
+// JR西日本 公開運行情報JSON（CORS対応あり）
+const DELAY_URL = 'https://trafficinfo.westjr.co.jp/api/v3/trafficinfo.json';
+// 阪和線のキーワード
+const LINE_KEYWORDS = ['阪和線', '関空快速', '関西空港'];
+
+async function fetchDelay() {
+  const banner = document.getElementById('delayBanner');
+  try {
+    const res = await fetch(DELAY_URL, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    const items = data?.operation?.result ?? [];
+    const related = items.filter(item => {
+      const text = (item.lineName || '') + (item.detail || '') + (item.info || '');
+      return LINE_KEYWORDS.some(k => text.includes(k));
+    });
+
+    const now = new Date().toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' });
+
+    if (related.length === 0) {
+      banner.className = 'delay-banner ok';
+      banner.innerHTML = `
+        <span class="icon">✅</span>
+        <div class="text">
+          <strong>阪和線・関空快速 平常運転</strong>
+          遅延・運休の情報はありません
+          <div class="delay-updated">更新: ${now}</div>
+        </div>`;
+    } else {
+      const msgs = related.map(i => `【${i.lineName}】${i.detail || i.info || ''}`).join('<br>');
+      banner.className = 'delay-banner delay';
+      banner.innerHTML = `
+        <span class="icon">⚠️</span>
+        <div class="text">
+          <strong>運行情報あり</strong>
+          ${msgs}
+          <div class="delay-updated">更新: ${now}</div>
+        </div>`;
+    }
+  } catch (e) {
+    banner.className = 'delay-banner error';
+    banner.innerHTML = `
+      <span class="icon">📡</span>
+      <div class="text">
+        <strong>運行情報を取得できませんでした</strong>
+        ネットワークエラーまたはCORS制限
+      </div>`;
+  }
 }
 
+// ── 描画 ──────────────────────────────────────────────
 function render() {
   const target = document.getElementById('arrivalTarget').value || '08:00';
-  const targetMin = toMinutes(target);
-  const nowMin = nowMinutes();
+  const targetMin = toMin(target);
+  const now = nowMin();
   const trains = TIMETABLE[currentTab];
 
-  // 出勤に間に合う電車: 関空着 <= 目標時刻
-  const inTime = trains.filter(t => toMinutes(t[1]) <= targetMin);
-  // その中で最も遅く富木を出発するもの = 推奨電車
-  const recommended = inTime.length > 0 ? inTime[inTime.length - 1] : null;
+  // 目標時刻に間に合う電車のうち最も遅い出発 = おすすめ
+  const inTime = trains.filter(t => toMin(t[1]) <= targetMin);
+  const recommended = inTime.length ? inTime[inTime.length - 1] : null;
 
-  // 現在時刻から見た次の電車（富木発 >= 今）
-  const nextTrains = trains.filter(t => toMinutes(t[0]) >= nowMin);
-  const nextTrain = nextTrains[0] || null;
-
-  let html = '';
-
-  // --- 推奨乗車案内 ---
+  // 推奨電車ボックス
+  const recBox = document.getElementById('recommendBox');
   if (recommended) {
-    const depMin = toMinutes(recommended[0]);
-    const diffMin = depMin - nowMin;
-    const arrMin = toMinutes(recommended[1]);
-    const marginMin = targetMin - arrMin;
-
+    const depMin = toMin(recommended[0]);
+    const diff = depMin - now;
     let urgency = '';
-    if (diffMin < 0) urgency = '（発車済）';
-    else if (diffMin === 0) urgency = '【まもなく出発！】';
-    else if (diffMin <= 5) urgency = `【あと${diffMin}分！急いで】`;
-    else urgency = `（あと${diffMin}分で出発）`;
+    if (diff < 0)      urgency = '（発車済）';
+    else if (diff === 0) urgency = '【まもなく出発！】';
+    else if (diff <= 5) urgency = `【あと${diff}分！急いで】`;
+    else               urgency = `（あと${diff}分で出発）`;
 
-    html += `
+    const margin = targetMin - toMin(recommended[1]);
+
+    recBox.innerHTML = `
       <div class="recommend-box">
-        <div class="label">✅ ${target}までに関空着 — おすすめ電車</div>
-        <div class="main-time">${recommended[0]} 富木発</div>
-        <div class="sub-info">${recommended[2]} ${urgency}</div>
-        <div class="arr-info">
-          関空 ${recommended[1]}着 ／ 目標より<strong>${marginMin}分</strong>早着
+        <div class="label">✅ 関空 ${target} 着に間に合うおすすめ電車</div>
+        <div class="row">
+          <div class="dep-time">${recommended[0]}</div>
+          <div class="dep-label">富木発</div>
         </div>
+        <div class="sub">${recommended[2]} ${urgency}</div>
+        <div class="arr">関空 ${recommended[1]}着 ／ 目標より <strong>${margin}分</strong> 早着</div>
       </div>`;
   } else {
-    html += `<div class="no-train-box">⚠ ${target}に間に合う電車が見つかりません</div>`;
+    recBox.innerHTML = `<div class="no-train">⚠ ${target} に間に合う電車が見つかりません</div>`;
   }
 
-  // --- 直近の電車リスト ---
-  html += `<div class="section-title">直近の時刻表（富木発）</div>`;
-  html += `<div class="train-list">`;
-
+  // 時刻表リスト
   const showTrains = [
-    ...trains.filter(t => toMinutes(t[0]) < nowMin).slice(-2).map(t => ({ ...t, passed: true })),
-    ...trains.filter(t => toMinutes(t[0]) >= nowMin).slice(0, 8).map(t => ({ ...t, passed: false })),
+    ...trains.filter(t => toMin(t[0]) < now).slice(-2).map(t => ({ t, passed: true })),
+    ...trains.filter(t => toMin(t[0]) >= now).slice(0, 8).map(t => ({ t, passed: false })),
   ];
 
-  let firstUpcoming = true;
-  for (const t of showTrains) {
-    const depMin = toMinutes(t[0]);
-    const diff = depMin - nowMin;
-    const arrMin = toMinutes(t[1]);
-    const isRecommended = recommended && t[0] === recommended[0];
+  let firstUp = true;
+  const listHTML = showTrains.map(({ t, passed }) => {
+    const depMin = toMin(t[0]);
+    const diff = depMin - now;
+    const isRec = recommended && t[0] === recommended[0];
 
-    let badgeClass = '', badgeText = '';
-    if (t.passed) {
-      badgeClass = 'passed'; badgeText = '発車済';
+    let bClass = '', bText = '';
+    if (passed) {
+      bClass = 'passed'; bText = '発車済';
     } else if (diff <= 0) {
-      badgeClass = 'soon'; badgeText = 'まもなく';
-    } else if (firstUpcoming) {
-      badgeClass = 'next'; badgeText = `次 ${diff}分後`;
-      firstUpcoming = false;
+      bClass = 'soon'; bText = 'まもなく';
+    } else if (firstUp) {
+      bClass = 'next'; bText = `次 ${diff}分後`;
+      firstUp = false;
     } else if (diff <= 5) {
-      badgeClass = 'soon'; badgeText = `${diff}分後`;
+      bClass = 'soon'; bText = `${diff}分後`;
     } else {
-      badgeClass = 'minutes'; badgeText = `${diff}分後`;
+      bClass = 'minutes'; bText = `${diff}分後`;
     }
 
-    // 目標時刻との関係
-    let targetBadge = '';
-    if (!t.passed) {
-      if (arrMin <= targetMin) {
-        const margin = targetMin - arrMin;
-        targetBadge = `<span class="badge ok" style="margin-left:4px">${margin >= 10 ? '余裕あり' : '間に合う'}</span>`;
-      } else {
-        targetBadge = `<span class="badge ng" style="margin-left:4px">遅延</span>`;
-      }
-    }
+    const arrMin = toMin(t[1]);
+    const fitBadge = !passed
+      ? (arrMin <= targetMin
+          ? `<span class="badge ok" style="margin-left:4px">間に合う</span>`
+          : `<span class="badge ng" style="margin-left:4px">遅延NG</span>`)
+      : '';
 
-    html += `
-      <div class="train-item ${isRecommended ? 'highlight' : ''} ${t.passed ? 'passed' : ''}">
+    return `
+      <div class="train-item ${isRec ? 'highlight' : ''} ${passed ? 'passed' : ''}">
         <div class="dep">${t[0]}</div>
         <div class="details">
-          <div class="type">${t[2]} ${targetBadge}</div>
+          <div class="type">${t[2]}${fitBadge}</div>
           <div class="arr">関空 ${t[1]}着</div>
         </div>
-        <span class="badge ${badgeClass}">${badgeText}</span>
+        <span class="badge ${bClass}">${bText}</span>
       </div>`;
-  }
+  }).join('');
 
-  html += '</div>';
-  document.getElementById('output').innerHTML = html;
+  document.getElementById('trainList').innerHTML = listHTML;
 }
 
-// Init
-autoDetectTab();
-setInterval(updateClock, 1000);
-setInterval(render, 30000);
+// ── 初期化 ────────────────────────────────────────────
+autoTab();
 updateClock();
+setInterval(updateClock, 1000);
+setInterval(render, 30000);       // 30秒ごとに表示更新
+setInterval(fetchDelay, 3 * 60 * 1000); // 3分ごとに遅延情報更新
+fetchDelay();
 </script>
 </body>
 </html>
